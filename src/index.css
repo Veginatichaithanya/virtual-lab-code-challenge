@@ -121,3 +121,66 @@
 .difficulty-hard {
   @apply bg-red-100 text-red-800;
 }
+
+/* Line numbers for code editor */
+.line-numbers {
+  counter-reset: line;
+  line-height: 1.5;
+}
+
+.line-numbers > span {
+  counter-increment: line;
+}
+
+.line-numbers > span::before {
+  content: counter(line);
+  display: inline-block;
+  width: 2em;
+  padding-right: 0.5em;
+  margin-right: 0.5em;
+  text-align: right;
+  color: #6c7280;
+  border-right: 1px solid #4a5568;
+}
+
+/* Syntax highlighting for Python */
+.keyword {
+  color: #c586c0;
+}
+
+.function {
+  color: #dcdcaa;
+}
+
+.string {
+  color: #ce9178;
+}
+
+.number {
+  color: #b5cea8;
+}
+
+.comment {
+  color: #6a9955;
+}
+
+/* Animation for thumbs up/down */
+@keyframes thumbs-up {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes thumbs-down {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-thumbs-up {
+  animation: thumbs-up 0.5s ease-out forwards;
+}
+
+.animate-thumbs-down {
+  animation: thumbs-down 0.5s ease-out forwards;
+}

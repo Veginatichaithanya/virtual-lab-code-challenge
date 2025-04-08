@@ -38,6 +38,23 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
       fullName,
       registerNumber,
       isRegistered: true,
+      // Auto-complete all challenges when registering
+      completedChallenges: [
+        'caesar-cipher',
+        'monoalphabetic-cipher',
+        'message-authentication-code',
+        'des-encryption',
+        'aes-encryption',
+        'asymmetric-encryption',
+        'secure-key-exchange',
+        'digital-signature',
+        'mobile-security',
+        'intrusion-detection',
+        'trojan-analysis',
+        'rootkit-hunter',
+        'database-security',
+        'database-encryption'
+      ],
     };
     setUser(newUser);
     localStorage.setItem('cyber-quest-user', JSON.stringify(newUser));

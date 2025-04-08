@@ -53,6 +53,17 @@ const Dashboard = () => {
             <p className="text-sm font-medium">Welcome, <span className="text-cyber-blue">{user.fullName}</span></p>
             <p className="text-xs text-muted-foreground">Reg. No: {user.registerNumber}</p>
           </div>
+          {hasCompletedAllChallenges() && (
+            <Button 
+              variant="default" 
+              size="sm"
+              className="bg-cyber-accent hover:bg-cyber-accent/90"
+              onClick={handleGenerateCertificate}
+            >
+              <Award className="h-4 w-4 mr-2" />
+              Generate Certificate
+            </Button>
+          )}
           <Button 
             variant="outline" 
             size="sm"
@@ -113,9 +124,8 @@ const Dashboard = () => {
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {challenges.map((challenge, index) => {
-          // A challenge is locked if the previous one isn't completed
-          // Except for the first challenge, which is always unlocked
-          const isLocked = index > 0 && !user.completedChallenges.includes(challenges[index - 1].id);
+          // All challenges are unlocked
+          const isLocked = false;
           
           return (
             <ChallengeCard
