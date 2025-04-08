@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useUser } from '@/context/UserContext';
 import { challenges } from '@/data/challengesData';
@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { ChevronLeft, Play, CheckCircle, ThumbsUp, ThumbsDown, CheckCheck, ArrowRight, Award } from 'lucide-react';
+import { ChevronLeft, Play, CheckCircle, ThumbsUp, ThumbsDown, CheckCheck, ArrowRight, Award, Copy, ClipboardCheck } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 
 const ChallengePage = () => {
@@ -25,6 +25,7 @@ const ChallengePage = () => {
   const [allTestsPassed, setAllTestsPassed] = useState(false);
   const [errorLogs, setErrorLogs] = useState<{ type: string; message: string }[]>([]);
   const [activeTab, setActiveTab] = useState('description');
+  const [copySuccess, setCopySuccess] = useState(false);
   
   // Find the current challenge
   const challenge = challenges.find(c => c.id === id);
@@ -147,6 +148,28 @@ const ChallengePage = () => {
       return `${lineNumber.toString().padStart(2, ' ')} ${line}`;
     }).join('\n');
   };
+
+  // Handle code changes in the editor
+  const handleCodeChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setCode(event.target.value);
+  };
+
+  // Copy solution code to clipboard
+  const copyToClipboard = () => {
+    const solutionCode = getCodeForChallenge(challenge.id);
+    navigator.clipboard.writeText(solutionCode);
+    setCopySuccess(true);
+    
+    // Reset the copy success state after 2 seconds
+    setTimeout(() => {
+      setCopySuccess(false);
+    }, 2000);
+
+    toast({
+      title: "Code Copied!",
+      description: "Solution code has been copied to clipboard.",
+    });
+  };
   
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -258,7 +281,27 @@ const ChallengePage = () => {
             
             <TabsContent value="solution" className="p-6 m-0">
               <div className="bg-muted/50 rounded-lg p-4">
-                <p className="mb-4 text-muted-foreground">Solution for {challenge.title} - {challenge.marks} Marks</p>
+                <div className="flex justify-between items-center mb-4">
+                  <p className="text-muted-foreground">Solution for {challenge.title} - {challenge.marks} Marks</p>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={copyToClipboard} 
+                    className="flex items-center gap-1"
+                  >
+                    {copySuccess ? (
+                      <>
+                        <ClipboardCheck className="h-4 w-4" />
+                        Copied!
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="h-4 w-4" />
+                        Copy Code
+                      </>
+                    )}
+                  </Button>
+                </div>
                 
                 <div className="bg-cyber-dark rounded-lg p-4 font-mono text-sm text-white overflow-auto">
                   <pre className="whitespace-pre-wrap">
@@ -312,9 +355,20 @@ const ChallengePage = () => {
           {/* Code editor area */}
           <div className="flex-1 relative">
             <div className="font-mono text-sm w-full h-full bg-cyber-dark text-white overflow-auto">
-              <pre className="p-4 line-numbers">
-                {getCodeWithLineNumbers(code)}
-              </pre>
+              <div className="p-4 flex">
+                <div className="line-numbers pr-4 text-gray-500 select-none">
+                  {code.split('\n').map((_, i) => (
+                    <div key={i}>{i + 1}</div>
+                  ))}
+                </div>
+                <textarea
+                  value={code}
+                  onChange={handleCodeChange}
+                  className="flex-1 bg-transparent outline-none resize-none min-h-[300px] font-mono"
+                  spellCheck="false"
+                  style={{ minHeight: `${code.split('\n').length * 24}px` }}
+                />
+              </div>
             </div>
             
             {/* Feedback animations */}
@@ -1560,4 +1614,3 @@ const getCodeForChallenge = (challengeId: string) => {
 };
 
 export default ChallengePage;
-

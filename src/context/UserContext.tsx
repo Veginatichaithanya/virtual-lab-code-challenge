@@ -6,6 +6,7 @@ interface User {
   registerNumber: string;
   isRegistered: boolean;
   completedChallenges: string[];
+  savedCode?: Record<string, string>; // Store the user's code for each challenge
 }
 
 interface UserContextType {
@@ -14,6 +15,8 @@ interface UserContextType {
   completeChallenge: (challengeId: string) => void;
   hasCompletedAllChallenges: () => boolean;
   resetProgress: () => void;
+  saveUserCode: (challengeId: string, code: string) => void;
+  getUserCode: (challengeId: string) => string | null;
 }
 
 const initialUserState: User = {
@@ -21,6 +24,7 @@ const initialUserState: User = {
   registerNumber: '',
   isRegistered: false,
   completedChallenges: [],
+  savedCode: {},
 };
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -55,6 +59,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
         'database-security',
         'database-encryption'
       ],
+      savedCode: user.savedCode || {},
     };
     setUser(newUser);
     localStorage.setItem('cyber-quest-user', JSON.stringify(newUser));
@@ -81,9 +86,23 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     const resetUser = {
       ...user,
       completedChallenges: [],
+      savedCode: {},
     };
     setUser(resetUser);
     localStorage.setItem('cyber-quest-user', JSON.stringify(resetUser));
+  };
+
+  // Save user's code for a specific challenge
+  const saveUserCode = (challengeId: string, code: string) => {
+    const updatedCode = { ...user.savedCode, [challengeId]: code };
+    const updatedUser = { ...user, savedCode: updatedCode };
+    setUser(updatedUser);
+    localStorage.setItem('cyber-quest-user', JSON.stringify(updatedUser));
+  };
+
+  // Get user's saved code for a specific challenge
+  const getUserCode = (challengeId: string): string | null => {
+    return user.savedCode?.[challengeId] || null;
   };
 
   return (
@@ -94,6 +113,8 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
         completeChallenge,
         hasCompletedAllChallenges,
         resetProgress,
+        saveUserCode,
+        getUserCode,
       }}
     >
       {children}

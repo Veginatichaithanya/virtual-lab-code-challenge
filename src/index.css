@@ -126,21 +126,29 @@
 .line-numbers {
   counter-reset: line;
   line-height: 1.5;
-}
-
-.line-numbers > span {
-  counter-increment: line;
-}
-
-.line-numbers > span::before {
-  content: counter(line);
-  display: inline-block;
-  width: 2em;
-  padding-right: 0.5em;
-  margin-right: 0.5em;
-  text-align: right;
+  display: flex;
+  flex-direction: column;
   color: #6c7280;
+  padding-right: 0.5rem;
+  text-align: right;
   border-right: 1px solid #4a5568;
+  user-select: none;
+}
+
+/* Editable code textarea styling */
+.code-editor-textarea {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', monospace;
+  background: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 0;
+  line-height: 1.5;
+  white-space: pre;
+  flex: 1;
+  width: 100%;
+  min-height: 300px;
 }
 
 /* Syntax highlighting for Python */
@@ -183,4 +191,16 @@
 
 .animate-thumbs-down {
   animation: thumbs-down 0.5s ease-out forwards;
+}
+
+/* Copy button animation */
+@keyframes fade-in-out {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.copy-success {
+  animation: fade-in-out 2s ease-in-out;
 }

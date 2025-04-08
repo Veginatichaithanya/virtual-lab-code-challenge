@@ -93,6 +93,15 @@ const Certificate = () => {
           
           {/* Certificate Content */}
           <div className="relative z-10 text-center">
+            {/* University Logo */}
+            <div className="mb-6">
+              <img 
+                src="/lovable-uploads/5a8d4528-468b-4abc-9efe-6932f2707954.png" 
+                alt="Kalasalingam Academy of Research and Education"
+                className="h-auto max-w-full mx-auto"
+              />
+            </div>
+            
             <div className="mb-2 flex justify-center">
               <Award className="h-16 w-16 text-cyber-blue" />
             </div>
