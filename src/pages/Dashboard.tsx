@@ -46,7 +46,7 @@ const Dashboard = () => {
       <header className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
         <div className="flex items-center gap-3">
           <Shield className="h-8 w-8 text-cyber-blue" />
-          <h1 className="text-3xl font-bold tracking-tight">Cyber Code Quest</h1>
+          <h1 className="text-3xl font-bold tracking-tight">VIRTUAL LAB CODE CHALLENGE</h1>
         </div>
         <div className="flex flex-col md:flex-row items-center gap-4">
           <div className="bg-card p-3 rounded-lg shadow-sm">

@@ -25,7 +25,7 @@ const Index = () => {
               <Shield className="h-12 w-12 text-cyber-blue" />
             </div>
           </div>
-          <h1 className="text-4xl font-bold text-white mb-3">Cyber Code Quest</h1>
+          <h1 className="text-4xl font-bold text-white mb-3">VIRTUAL LAB CODE CHALLENGE</h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Master essential cybersecurity concepts through 14 interactive coding experiments
           </p>
@@ -36,7 +36,7 @@ const Index = () => {
             <div className="text-white">
               <h2 className="text-2xl font-bold mb-4">Start Your Cybersecurity Journey</h2>
               <p className="text-gray-300 mb-6">
-                The Cyber Code Quest platform provides hands-on experience with real-world cybersecurity 
+                The VIRTUAL LAB CODE CHALLENGE platform provides hands-on experience with real-world cybersecurity 
                 techniques through interactive coding challenges. From basic encryption algorithms to 
                 advanced security implementations, you'll build practical skills essential for today's 
                 digital security landscape.
