@@ -9,7 +9,7 @@ import { useToast } from '@/hooks/use-toast';
 // Import the new refactored components
 import ChallengeHeader from '@/components/challenge/ChallengeHeader';
 import ChallengeDescription from '@/components/challenge/ChallengeDescription';
-import ChallengeSolution from '@/components/challenge/ChallengeSolution';
+import { ChallengeSolution } from '@/components/challenge/ChallengeSolution';
 import CodeEditor from '@/components/challenge/CodeEditor';
 
 const ChallengePage = () => {
