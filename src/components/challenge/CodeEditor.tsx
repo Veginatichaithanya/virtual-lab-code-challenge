@@ -1,8 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Play, CheckCircle, ThumbsUp, ThumbsDown, Check } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+import { Play, ThumbsUp, ThumbsDown } from 'lucide-react';
 
 interface ErrorLog {
   type: string;
@@ -52,28 +51,15 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
             <Play className="h-4 w-4 mr-1" />
             Run Code
           </Button>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="default"
-              size="sm"
-              onClick={onRunTests}
-              disabled={isRunning || isTesting}
-              className={`${
-                allTestsPassed 
-                  ? 'bg-cyber-blue hover:bg-cyber-blue/90' 
-                  : 'bg-cyber-blue hover:bg-cyber-blue/90'
-              } text-white`}
-            >
-              Execute Test Cases
-            </Button>
-            
-            {allTestsPassed && (
-              <Badge variant="default" className="bg-green-500 text-white gap-1">
-                <Check className="h-3.5 w-3.5 mr-1" />
-                Completed
-              </Badge>
-            )}
-          </div>
+          <Button
+            variant="default"
+            size="sm"
+            onClick={onRunTests}
+            disabled={isRunning || isTesting}
+            className="bg-cyber-blue hover:bg-cyber-blue/90 text-white"
+          >
+            Execute Test Cases
+          </Button>
         </div>
       </div>
       

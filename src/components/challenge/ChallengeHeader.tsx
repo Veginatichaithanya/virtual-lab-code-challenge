@@ -2,9 +2,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { ChevronLeft, Award, CheckCheck, ArrowRight } from 'lucide-react';
+import { ChevronLeft, Award, ArrowRight } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 interface ChallengeHeaderProps {
   title: string;
@@ -71,12 +71,6 @@ const ChallengeHeader: React.FC<ChallengeHeaderProps> = ({
               <Award className="h-4 w-4 mr-1" />
               Generate Certificate
             </Button>
-          )}
-          {allTestsPassed && (
-            <Badge variant="default" className="bg-green-500 text-white gap-1">
-              <CheckCheck className="h-3.5 w-3.5 mr-1" />
-              Completed
-            </Badge>
           )}
           {allTestsPassed && hasNextChallenge && nextChallengeId && (
             <Button 
