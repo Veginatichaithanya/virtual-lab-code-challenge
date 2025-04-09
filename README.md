@@ -1,73 +1,102 @@
-# Welcome to your Lovable project
+🔐 Secured Computing Code Challenge Platform
+Welcome to the Secured Computing Code Challenge Platform – an interactive, gamified learning environment designed to help students master key concepts in cybersecurity through 14 structured coding experiments.
 
-## Project info
+🚀 Project Overview
+This platform provides a hands-on experience in secure computing, guiding learners through real-time coding challenges focused on:
 
-**URL**: https://lovable.dev/projects/20e8fd78-323a-4494-b8fd-872143ce5437
+Encryption & Decryption
 
-## How can I edit this code?
+Network Security
 
-There are several ways of editing your application.
+Authentication Protocols
 
-**Use Lovable**
+Hashing & Integrity
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/20e8fd78-323a-4494-b8fd-872143ce5437) and start prompting.
+Firewalls & Access Control
 
-Changes made via Lovable will be committed automatically to this repo.
+And more!
 
-**Use your preferred IDE**
+Each experiment features:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+📄 A clear Description
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+👨‍💻 A real-time Python 3.12 Compiler
 
-Follow these steps:
+✅ Test Case Validation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+📈 Progress Tracking
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+🏆 Certificate Generation after completion
 
-# Step 3: Install the necessary dependencies.
-npm i
+📚 Features
+🧠 14 Cybersecurity Experiments with increasing difficulty
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+✍️ Dual-Tab Interface: Description | Solution
+
+💻 Real-time Python compiler with robust error handling
+
+🐛 Line-by-line execution & multi-stage error logging
+
+⚙️ Test case validation with animated feedback
+
+💾 Supabase backend for user authentication & data storage
+
+🎓 Certificate auto-generation upon successful completion
+
+🛠️ Tech Stack
+Frontend: React + Tailwind CSS
+
+Backend: Node.js / Supabase
+
+Compiler Engine: Custom-built Python Execution Engine
+
+Database: Supabase
+
+Authentication: Supabase Auth
+
+Certificate Generator: HTML2PDF
+
+🧪 Run Locally
+bash
+Copy
+Edit
+# Clone the repo
+git clone https://github.com/yourusername/secured-computing-platform.git
+
+# Go to the project directory
+cd secured-computing-platform
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-```
+Ensure you have your Supabase API keys and Python compiler service properly configured.
 
-**Edit a file directly in GitHub**
+📸 Screenshots
+Description Tab	Solution Tab	Certificate
+🧑‍🎓 User Flow
+Register with Full Name & Register Number
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Navigate through the 14 cybersecurity experiments
 
-**Use GitHub Codespaces**
+Solve each challenge by writing Python code
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Validate against test cases
 
-## What technologies are used for this project?
+Progress to the next challenge
 
-This project is built with:
+Receive a certificate upon completion 🎓
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+🛡️ Theme
+🎨 Dark Blue, Electric Blue, and Cyber Green
 
-## How can I deploy this project?
+🧑‍💻 Hacker-style coding terminal feel
 
-Simply open [Lovable](https://lovable.dev/projects/20e8fd78-323a-4494-b8fd-872143ce5437) and click on Share -> Publish.
+✅ Smooth transitions and animation effects
 
-## Can I connect a custom domain to my Lovable project?
+🧾 License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-Yes it is!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+🙌 Acknowledgements
+Built as part of the Secure Computing Lab initiative. Inspired by platforms like LeetCode and Codecademy, tailored for cybersecurity education.
